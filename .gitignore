@@ -1,0 +1,6 @@
+metabase/data/*
+mysql/data/*
+!.gitkeep
+
+.env
+.vscode/

@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  metabase:
+    image: metabase/metabase:v0.34.3
+    volumes:
+      - ./metabase/data:/metabase-data
+    ports:
+      - 127.0.0.1:33000:3000
+    depends_on:
+      - db
+    env_file: ./metabase/env
+
+  db:
+    image: mysql:8
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/conf/metabase.cnf:/etc/mysql/conf.d/my.cnf
+      - ./mysql/ini:/docker-entrypoint-initdb.d
+    ports:
+      - 127.0.0.1:33001:3306
+    env_file: ./mysql/env

@@ -1,0 +1,11 @@
+[mysqld]
+character-set-server=utf8mb4
+bind-address=0.0.0.0
+explicit_defaults_for_timestamp=1
+default_authentication_plugin=mysql_native_password
+general-log=1
+general-log-file=/var/log/mysql/mysqld.log
+secure-file-priv=/docker-entrypoint-initdb.d
+
+[client]
+default-character-set=utf8mb4
